@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import "./Form.css";
+import InputCheckbox from "../InputCheckbox/InputCheckbox";
 
 const Form = () => {
   const [todos, setTodos] = useState([]);
@@ -25,7 +26,7 @@ const Form = () => {
         return (
           <div key={index}>
             <div>
-              <input type="checkbox" name="todoCheck" />
+              <InputCheckbox />
               <span className="todos">{todos}</span>
             </div>
           </div>
