@@ -1,5 +1,5 @@
 const DeleteTodo = () => {
-  return <button>Delete</button>;
+  return <button>&#10060;</button>;
 };
 
 export default DeleteTodo;

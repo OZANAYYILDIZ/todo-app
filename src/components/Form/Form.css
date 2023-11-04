@@ -1,7 +1,63 @@
 body {
   font-family: "Oswald", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+button {
+  font-family: "Oswald", sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+}
+input {
+  font-family: "Oswald", sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  width: 600px;
+  height: 600px;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 4px 1px 24px 0px rgba(0, 0, 0, 0.5);
+}
+
+.todo-form {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.input-todo {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+.add-btn {
+  margin-left: 8px;
+  padding: 0 24px;
+  border: none;
+  border-radius: 2px;
 }
 
 .todos {
   display: flex;
+  border-radius: 2px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  justify-content: space-between;
+}
+
+.delete-btn > button {
+  border: none;
+  border-radius: 2px;
+}
+
+.todos-string {
+  flex-grow: 2;
+  padding-left: 4px;
 }

@@ -14,26 +14,33 @@ const Form = () => {
   };
   return (
     <>
-      <form onSubmit={handleAddTodo}>
-        <input
-          type="text"
-          id="todoForm"
-          placeholder="Enter new To-Do"
-          ref={todoInputRef}
-        />
-        <button>Add</button>
-      </form>
-      {todos.map((todos, index) => {
-        return (
-          <div key={index}>
-            <div className="todos">
-              <InputCheckbox />
-              <span>{todos}</span>
-              <DeleteTodo />
+      <div className="container">
+        <form className="todo-form" onSubmit={handleAddTodo}>
+          <input
+            className="input-todo"
+            type="text"
+            id="todoForm"
+            placeholder="Enter new To-Do"
+            ref={todoInputRef}
+          />
+          <button className="add-btn">Add</button>
+        </form>
+        {todos.map((todos, index) => {
+          return (
+            <div key={index}>
+              <div className="todos">
+                <div className="check-box">
+                  <InputCheckbox />
+                </div>
+                <div className="todos-string">{todos}</div>
+                <div className="delete-btn">
+                  <DeleteTodo />
+                </div>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </>
   );
 };
