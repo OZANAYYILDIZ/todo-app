@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import "./Form.css";
 import InputCheckbox from "../InputCheckbox/InputCheckbox";
+import DeleteTodo from "../DeleteTodo/DeleteTodo";
 
 const Form = () => {
   const [todos, setTodos] = useState([]);
@@ -25,9 +26,10 @@ const Form = () => {
       {todos.map((todos, index) => {
         return (
           <div key={index}>
-            <div>
+            <div className="todos">
               <InputCheckbox />
-              <span className="todos">{todos}</span>
+              <span>{todos}</span>
+              <DeleteTodo />
             </div>
           </div>
         );
