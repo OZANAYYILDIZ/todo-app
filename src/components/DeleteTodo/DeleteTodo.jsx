@@ -1,5 +1,11 @@
+import { FaRegTrashAlt } from "react-icons/fa";
+
 const DeleteTodo = () => {
-  return <button>&#10060;</button>;
+  return (
+    <button>
+      <FaRegTrashAlt />
+    </button>
+  );
 };
 
 export default DeleteTodo;

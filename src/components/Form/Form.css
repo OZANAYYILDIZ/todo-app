@@ -4,24 +4,36 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  color: rgba(0, 0, 0, 0.5);
+  color: #555;
 }
 
 button {
   font-family: "Oswald", sans-serif;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 1);
+  box-shadow: 8px 2px 24px 2px #a9e19050;
+  background-color: #f28f3b60;
+  transition: 0.5s;
 }
-input {
+
+button:hover {
+  background-color: #f28f3b;
+}
+
+input[type="text"] {
   font-family: "Oswald", sans-serif;
-  color: rgba(0, 0, 0, 0.5);
+  color: #555;
+}
+
+input[type="text"]:focus {
+  outline: none;
 }
 
 .container {
-  width: 600px;
+  width: 500px;
   height: 600px;
   border-radius: 4px;
   padding: 10px;
-  box-shadow: 4px 1px 24px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 1px 24px 1px #a9e19050;
 }
 
 .todo-form {
@@ -34,7 +46,7 @@ input {
   padding: 10px;
   border: none;
   border-radius: 2px;
-  box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 2px 24px 2px #a9e19050;
 }
 
 .add-btn {
@@ -47,7 +59,7 @@ input {
 .todos {
   display: flex;
   border-radius: 2px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #a9e19050;
   padding: 8px 0;
   justify-content: space-between;
 }
@@ -55,6 +67,7 @@ input {
 .delete-btn > button {
   border: none;
   border-radius: 2px;
+  box-shadow: 8px 2px 24px 2px #a9e19050;
 }
 
 .todos-string {
