@@ -12,6 +12,17 @@ const Form = () => {
     setTodos([...todos, todoInputRef.current.value]);
     todoInputRef.current.value = "";
   };
+
+  const handleCheckChange = (index) => {
+    console.log(index + " checkbox changed");
+  };
+
+  const handleDeleteTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
+
   return (
     <>
       <div className="container">
@@ -30,11 +41,24 @@ const Form = () => {
             <div key={index}>
               <div className="todos">
                 <div className="check-box">
-                  <InputCheckbox />
+                  <InputCheckbox
+                    onCheckChange={() => {
+                      handleCheckChange(index);
+                    }}
+                  />
                 </div>
                 <div className="todos-string">{todos}</div>
                 <div className="delete-btn">
-                  <DeleteTodo />
+                  <DeleteTodo
+                    onDelete={() => {
+                      //DeleteTodo'ya onDelete diye
+                      //prop verdik. O da içerdeki button
+                      //tıklanınca burayı tetikliyor.
+                      //bu handleDeleteTodo da index alıp
+                      //o index'i silip, tekrar state set ediyor
+                      handleDeleteTodo(index);
+                    }}
+                  />
                 </div>
               </div>
             </div>

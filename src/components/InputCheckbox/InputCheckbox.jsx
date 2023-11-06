@@ -1,9 +1,9 @@
 import "./InputCheckbox.css";
 
-const InputCheckbox = () => {
+const InputCheckbox = ({ onCheckChange }) => {
   return (
     <>
-      <input type="checkbox" name="todoCheck" />
+      <input onChange={onCheckChange} type="checkbox" name="todoCheck" />
     </>
   );
 };

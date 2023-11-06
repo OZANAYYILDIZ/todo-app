@@ -53,15 +53,17 @@ input[type="text"]:focus {
   box-shadow: 8px 2px 24px 2px #a9e19050;
 }
 
-.add-btn {
-}
-
 .todos {
   display: flex;
   border-radius: 2px;
   border-bottom: 1px solid #a9e19050;
   padding: 8px 0;
   justify-content: space-between;
+}
+
+.todos-done {
+  background-color: gray;
+  text-decoration: line-through;
 }
 
 .delete-btn > button {

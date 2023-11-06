@@ -1,12 +1,8 @@
 import { FaRegTrashAlt } from "react-icons/fa";
 
-const DeleteTodo = () => {
-  const deleteTodo = () => {
-    console.log("delete button clicked");
-  };
-
+const DeleteTodo = ({ onDelete }) => {
   return (
-    <button onClick={deleteTodo}>
+    <button onClick={onDelete}>
       <FaRegTrashAlt />
     </button>
   );
