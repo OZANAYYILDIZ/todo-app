@@ -7,15 +7,19 @@ body {
   color: #555;
 }
 
-button {
+.add-btn {
   font-family: "Oswald", sans-serif;
   color: rgba(0, 0, 0, 1);
   box-shadow: 8px 2px 24px 2px #a9e19050;
-  background-color: #f28f3b60;
+  background-color: #f28f3baa;
   transition: 0.5s;
+  margin-left: 8px;
+  padding: 0 24px;
+  border: none;
+  border-radius: 2px;
 }
 
-button:hover {
+.add-btn:hover {
   background-color: #f28f3b;
 }
 
@@ -50,10 +54,6 @@ input[type="text"]:focus {
 }
 
 .add-btn {
-  margin-left: 8px;
-  padding: 0 24px;
-  border: none;
-  border-radius: 2px;
 }
 
 .todos {
@@ -66,8 +66,7 @@ input[type="text"]:focus {
 
 .delete-btn > button {
   border: none;
-  border-radius: 2px;
-  box-shadow: 8px 2px 24px 2px #a9e19050;
+  background-color: #ffffff;
 }
 
 .todos-string {
