@@ -19,16 +19,18 @@ const Form = () => {
     todoInputRef.current.value = "";
   };
 
-  let classTodo = "todos";
-
   const handleCheckChange = (index) => {
-    if (todos[index].done === false) {
-      todos[index].done = true;
-    } else {
-      todos[index].done = false;
-    }
-
-    console.log(todos[index].done);
+    const tempTodos = todos.map((todo, i) => {
+      if (i === index) {
+        return {
+          title: todo.title,
+          done: !todo.done,
+        };
+      }
+      return todo;
+    });
+    setTodos(tempTodos);
+    console.log(todos);
   };
 
   const handleDeleteTodo = (index) => {
@@ -50,10 +52,14 @@ const Form = () => {
           />
           <button className="add-btn">Add</button>
         </form>
-        {todos.map((todos, index) => {
+        {todos.map((todo, index) => {
           return (
             <div key={index}>
-              <div className={classTodo}>
+              <div
+                className={
+                  todo.done ? "todo-done todo-generic" : "todo todo-generic"
+                }
+              >
                 <div className="check-box">
                   <InputCheckbox
                     onCheckChange={() => {
@@ -61,7 +67,7 @@ const Form = () => {
                     }}
                   />
                 </div>
-                <div className="todos-string">{todos.title}</div>
+                <div className="todos-string">{todo.title}</div>
                 <div className="delete-btn">
                   <DeleteTodo
                     onDelete={() => {

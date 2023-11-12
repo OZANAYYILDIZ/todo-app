@@ -53,7 +53,11 @@ input[type="text"]:focus {
   box-shadow: 8px 2px 24px 2px #a9e19050;
 }
 
-.todos {
+.todo-generic {
+  transition: background-color 0.5s;
+}
+
+.todo {
   display: flex;
   border-radius: 2px;
   border-bottom: 1px solid #a9e19050;
@@ -61,7 +65,7 @@ input[type="text"]:focus {
   justify-content: space-between;
 }
 
-.todos-done {
+.todo-done {
   display: flex;
   border-radius: 2px;
   border-bottom: 1px solid #a9e19050;
