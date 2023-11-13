@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Form.css";
 import InputCheckbox from "../InputCheckbox/InputCheckbox";
 import DeleteTodo from "../DeleteTodo/DeleteTodo";
@@ -6,6 +6,13 @@ import DeleteTodo from "../DeleteTodo/DeleteTodo";
 const Form = () => {
   const [todos, setTodos] = useState([]);
   const todoInputRef = useRef();
+
+  useEffect(() => {
+    const todos = JSON.parse(localStorage.getItem("todos"));
+    if (todos) {
+      setTodos(todos);
+    }
+  }, []);
 
   const handleAddTodo = (e) => {
     e.preventDefault();
@@ -17,6 +24,14 @@ const Form = () => {
       },
     ]);
     todoInputRef.current.value = "";
+  };
+
+  useEffect(() => {
+    if (todos.length > 0) saveTodosToLocalStorage();
+  }, [todos]);
+
+  const saveTodosToLocalStorage = () => {
+    localStorage.setItem("todos", JSON.stringify(todos));
   };
 
   const handleCheckChange = (index) => {
