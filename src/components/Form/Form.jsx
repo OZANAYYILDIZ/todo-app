@@ -2,40 +2,30 @@ import { useRef, useState } from "react";
 import "./Form.css";
 import InputCheckbox from "../InputCheckbox/InputCheckbox";
 import DeleteTodo from "../DeleteTodo/DeleteTodo";
+import useTodos from "../../store/todos.store";
 
 const Form = () => {
-  const [todos, setTodos] = useState([]);
+  const { todos, addTodo, removeTodo, updateTodoStatus } = useTodos();
   const todoInputRef = useRef();
 
   const handleAddTodo = (e) => {
     e.preventDefault();
-    setTodos([
-      ...todos,
-      {
-        title: todoInputRef.current.value,
-        done: false,
-      },
-    ]);
+    const todo = todoInputRef.current.value;
+    if (todo === "") return;
+    addTodo({
+      id: Math.floor(Math.random() * 10000),
+      title: todo,
+      done: false,
+    });
     todoInputRef.current.value = "";
   };
 
-  const handleCheckChange = (index) => {
-    const tempTodos = todos.map((todo, i) => {
-      if (i === index) {
-        return {
-          title: todo.title,
-          done: !todo.done,
-        };
-      }
-      return todo;
-    });
-    setTodos(tempTodos);
+  const handleCheckChange = (id) => {
+    updateTodoStatus(id);
   };
 
-  const handleDeleteTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+  const handleDeleteTodo = (id) => {
+    removeTodo(id);
   };
 
   return (
@@ -62,7 +52,7 @@ const Form = () => {
                 <div className="check-box">
                   <InputCheckbox
                     onCheckChange={() => {
-                      handleCheckChange(index);
+                      handleCheckChange(todo.id);
                     }}
                   />
                 </div>
@@ -70,7 +60,7 @@ const Form = () => {
                 <div className="delete-btn">
                   <DeleteTodo
                     onDelete={() => {
-                      handleDeleteTodo(index);
+                      handleDeleteTodo(todo.id);
                     }}
                   />
                 </div>
