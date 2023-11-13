@@ -30,7 +30,6 @@ const Form = () => {
       return todo;
     });
     setTodos(tempTodos);
-    console.log(todos);
   };
 
   const handleDeleteTodo = (index) => {
@@ -71,11 +70,6 @@ const Form = () => {
                 <div className="delete-btn">
                   <DeleteTodo
                     onDelete={() => {
-                      //DeleteTodo'ya onDelete diye
-                      //prop verdik. O da içerdeki button
-                      //tıklanınca burayı tetikliyor.
-                      //bu handleDeleteTodo da index alıp
-                      //o index'i silip, tekrar state set ediyor
                       handleDeleteTodo(index);
                     }}
                   />
